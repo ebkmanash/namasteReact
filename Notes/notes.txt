@@ -1,0 +1,5 @@
+git ssh keys generation
+
+ssh-keygen
+next goto two shops tops link copy and paste in settings>add ssh GPG keys add new ssh keys
+video link:https://www.youtube.com/watch?v=lV5mrUYsucU
