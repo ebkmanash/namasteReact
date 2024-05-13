@@ -3,4 +3,28 @@ git ssh keys generation
 ssh-keygen
 next goto two shops tops link copy and paste in settings>add ssh GPG keys add new ssh keys
 video link:https://www.youtube.com/watch?v=lV5mrUYsucU
-hello added at git hub
+npm install -D parcel it will be in devdependencies
+"devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  ^ carret updates minor versions
+  ~ updates for major versions
+  no carret or ~ than means no upgradations
+  # every package will have its own package.json
+  no need to push node modules to repo , if we have package.json than we recreate them.
+  npx parcel index.html
+
+  npx means executing a package
+  #parcel
+  dev build
+  parcel caching things for us-> faster builds
+  live server
+  bundling
+  compressing
+  minification
+  image optimization
+  file watching algorithem
+  hot module replacement
+  tree shaking-remove unused code
+
+  parceljs.org

@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "parcel": "^2.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -8,7 +7,10 @@
   "version": "1.0.0",
   "description": "this is react by bala",
   "main": "App.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
   "scripts": {
     "test": "jest"
   },
