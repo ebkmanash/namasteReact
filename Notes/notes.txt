@@ -28,3 +28,9 @@ npm install -D parcel it will be in devdependencies
   tree shaking-remove unused code
 
   parceljs.org
+  create build
+  npx parcel build index.html
+  than we get error
+  as "main": "App.js",
+  >    |          
+  remove the line "main": "App.js"
