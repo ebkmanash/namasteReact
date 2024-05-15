@@ -70,3 +70,75 @@ namaste react
 components
 1>functinal based _> just normal java script function which returns some react element(jsx).
 2>class based
+
+
+Component Composition
+let Title=()=>{
+    return(
+        <h4>namaste react using JSX</h4>
+    )
+}
+let FunctComp=()=>{
+    return(
+        <div>
+            Hello
+            <Title/>
+        </div>
+    )
+}
+let JsxHeading=<h1 > i am jsx element</h1>
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<FunctComp/>);
+
+same example without return in title functinal components
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// let heading=React.createElement("h1",{},"vinayakaya namaha3")
+let Title=()=>  
+        <h4>namaste react using JSX</h4>
+    
+
+let FunctComp=()=>{
+    return(
+        <div>
+            Hello
+            <Title/>
+        </div>
+    )
+}
+let JsxHeading=<h1 > i am jsx element</h1>
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<FunctComp/>);
+
+
+Rendering react element
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+// let heading=React.createElement("h1",{},"vinayakaya namaha3")
+
+    
+
+let FunctComp=()=>{
+
+    return(
+        
+        <div>
+            <div>first</div>
+                    Hello
+            </div>
+    )
+}
+let Title=<h2>namaste react
+    <FunctComp/>
+    
+</h2>
+       
+let JsxHeading=<h1 > i am jsx element</h1>
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(Title);
+
+
+JSX take care about injection attacks. it will sanitise the data came from APIs and then it passes.
