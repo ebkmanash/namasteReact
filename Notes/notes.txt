@@ -27,6 +27,7 @@ npm install -D parcel it will be in devdependencies
   hot module replacement
   tree shaking-remove unused code
 
+parcel is beast -> cache maintainance
   parceljs.org
   create build
   npx parcel build index.html
@@ -34,3 +35,38 @@ npm install -D parcel it will be in devdependencies
   as "main": "App.js",
   >    |          
   remove the line "main": "App.js"
+
+  to add scripts in package.json
+  in scripts place
+  add "start": "parcel index.html"
+  than we can run as npm run start or npm start only for this one.
+
+  "build": "parcel build index.html",
+
+  "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+running like npm run build not with npm build
+V3
+JSX: java script syntax which is easirier to create react elements.JSX is not a part of react.
+react is different and jSX is different
+-->java script only understand ecmascript not jsx.
+jsx transpiled before reching it reaches js engine. this is done by parcel with help of babel.
+
+react.createElement=>React js object-> html element
+JSX=(babel helps to transpile to)>react.createElement=>React js object-> html element
+https://babeljs.io/
+Put in next-gen JavaScript                 Get browser-compatible JavaScript out
+let heading=<h1>namaste react</h1>        let heading =React.createElement("h1",null,"namaste react")
+
+
+let heading=(<h1>
+namaste react
+</h1>)  circlar brace for multiple line comments.
+
+
+components
+1>functinal based _> just normal java script function which returns some react element(jsx).
+2>class based

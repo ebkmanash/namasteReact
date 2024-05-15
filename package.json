@@ -12,6 +12,8 @@
     "process": "^0.11.10"
   },
   "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -23,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/ebkmanash/namasteReact/issues"
   },
-  "homepage": "https://github.com/ebkmanash/namasteReact#readme"
+  "homepage": "https://github.com/ebkmanash/namasteReact#readme",
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions",
+    "last 20 versions"
+  ]
 }
