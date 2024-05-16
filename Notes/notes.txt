@@ -142,3 +142,33 @@ let JsxHeading=<h1 > i am jsx element</h1>
 
 
 JSX take care about injection attacks. it will sanitise the data came from APIs and then it passes.
+
+v4 
+planning for swiggy like application building-NAMASTE FOOD
+
+header
+    logo 
+    links
+        home 
+        about
+        cart 
+body
+    search
+        input search
+        search button
+    food container
+        food card
+            image
+            name 
+            start rating
+            estimate time
+footer
+    links
+        contact info
+        address
+        phone number
+        copy right
+
+
+Config driven UI:
+web site is driven by data/config(swigy for kolkat delhi mumbai). it come from backend
