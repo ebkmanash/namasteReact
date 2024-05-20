@@ -67,4 +67,8 @@
   .reststar{
     padding: 0;
   }
-  
+  .filter{
+    margin:10px;
+    cursor: pointer;
+    padding: 5px;
+  }

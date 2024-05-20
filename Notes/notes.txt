@@ -172,3 +172,20 @@ footer
 
 Config driven UI:
 web site is driven by data/config(swigy for kolkat delhi mumbai). it come from backend
+
+video 5
+
+named export and default export
+
+default export  
+    export default Component
+    import Component
+named export
+    export Const Component
+    import {Component}
+
+Use state.
+
+react fiber
+
+virtual dom
