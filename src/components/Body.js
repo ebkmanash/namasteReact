@@ -1,58 +1,29 @@
-import { useState } from "react";
-import { cardInfoRest } from "../utils/mockData";
-import RestCard from "./RestCard";
-
-let listRestData1=[{
-    info:{
-    "id": "596634",
-    "name": "Food Engineers",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 4.2,
-}},{info:{
-    "id": "596635",
-    "name": "Unnat",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 3.9,
-}},{info:{
-    "id": "596636",
-    "name": "valintine",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 4.2,
-}}
-]
+import restdata from "../utils/mockData"
+import { useState } from "react"
+import RestCard from "./RestCard"
+let  bodystyle={backgroundColor:'#f0f0f0'}
 let Body=()=>{
-    const [listRestData,setListRestData]=useState(cardInfoRest)
+    let [data,setData]=useState(restdata)
     return(
-        <div>
-            <button className='filter' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
-                // console.log(listRestData)
-                setListRestData(filteredListRest)
-            }}>
-                Top Rated Restrents
-            </button>
-            <div className='card-container'>
-                {listRestData.map(cardInfo=>{
-                   return(
-                        <RestCard key={cardInfo.info.id} rest={cardInfo}/>
-                    )
-                })}
-             </div>
+        <div className='body-container'>
+        data:{console.log(restdata)}
+            <div className='body-toprated'>
             
+                <button className='top-rated-btn' onClick={()=>{filterrestdata=restdata.filter((rest)=>rest.info.avgRating>4)
+                    setData(filterrestdata)
+                }
+            
+            }>Top Rated button</button>
+            </div>
+            <div className='bodycard-container'>
+                
+                {data.map((rest)=>{
+                    return(
+                        <RestCard style={bodystyle} key={rest.info.id} className="rest-container" rest={rest}/>
+                    )
+                 })}
+                
+            </div>
         </div>
     )
 }
