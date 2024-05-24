@@ -1,46 +1,27 @@
-import { useState } from "react";
-import { cardInfoRest } from "../utils/mockData";
+import { useEffect, useState } from "react";
 import RestCard from "./RestCard";
+import Shimmer from "./Shimmer";
 
-let listRestData1=[{
-    info:{
-    "id": "596634",
-    "name": "Food Engineers",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 4.2,
-}},{info:{
-    "id": "596635",
-    "name": "Unnat",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 3.9,
-}},{info:{
-    "id": "596636",
-    "name": "valintine",
-    "cloudinaryImageId": "f7qfuwixlvs0qthwxrpx",
-    
-    "cuisines": [
-        "Biryani",
-        "Chinese"
-    ],
-    "avgRating": 4.2,
-}}
-]
+
 let Body=()=>{
-    const [listRestData,setListRestData]=useState(cardInfoRest)
-    return(
+    const [listRestData,setListRestData]=useState([])
+   
+    let fetchData= async()=>{
+        let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.693711&lng=81.0497646&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    
+        let json=await data.json();
+        setListRestData(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+    }
+    useEffect(()=>{
+        fetchData();
+    },[])
+
+   
+    return listRestData.length===0?(
+        <Shimmer/>
+    ):(
         <div>
             <button className='filter' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
-                // console.log(listRestData)
                 setListRestData(filteredListRest)
             }}>
                 Top Rated Restrents
