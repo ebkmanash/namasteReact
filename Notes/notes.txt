@@ -189,3 +189,9 @@ Use state.
 react fiber
 
 virtual dom
+
+
+importent
+when ever local state variable updates react triggers  reconsiliation cycle algorithem (re-render the whole component) takes place
+
+loading->render->API->render
