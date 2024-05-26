@@ -33,24 +33,25 @@ flex-wrap: wrap;
 }
 .rest-card{
   
-  /* border: 1px solid black;
-  width: 200px  auto;
-  height: 300px auto;
-  padding: 2px;
-  margin: 5px; */
-  width:200px auto;
-    height: 300px auto;
+  
+  
+  width:215px ;
+    height: 400px;
     padding:  5px;
     margin: 5px;
   
 }
+.rest-card:hover{
+  border: 1px solid black;
+}
 .rest-image{
   /* width: 100%;
   height:200px; */
-  width:100%;
+  width:213px;
   height: 200px;
 
 }
+
 
 .rest-name{
   padding: 0;
@@ -71,4 +72,10 @@ flex-wrap: wrap;
 .top-rated-btn{
   margin:10px;
   padding:5px;
+  
+}
+.nav-login{
+  padding:0 20px;
+  margin:0 20px;
+  background-color: white;
 }
