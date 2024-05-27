@@ -195,3 +195,23 @@ importent
 when ever local state variable updates react triggers  reconsiliation cycle algorithem (re-render the whole component) takes place
 
 loading->render->API->render
+
+useEffect
+with out dependency array-> called every time component render
+UseEffect(()=>{console.log("header use Effect called")}).
+
+with empty dependency array-> first time component loader it will render once only
+useEffect(()=>{console.log("console.log(""header use efeect)")},[])
+
+with dependency array-> it will call use effect when ever they updated the dependency arry variable
+
+v7
+useState hook
+
+it should be inside the component for local storage perpose
+
+dont place useState variable inside the if , for and function. 
+place the useState variable on top of functinal component
+
+Routing in reactS version 6.4
+

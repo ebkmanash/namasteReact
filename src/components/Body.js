@@ -12,8 +12,8 @@ let Body=()=>{
         let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.693711&lng=81.0497646&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     
         let json=await data.json();
-        setListRestData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterSearch(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListRestData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterSearch(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         
     }
     useEffect(()=>{
