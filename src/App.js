@@ -7,6 +7,7 @@ import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom'
 import About from './components/About'
 import Contact from './components/Contact'
 import Error from './components/Error'
+import RestMenu from './components/RestMenu'
 export let Logo=()=>{
     return(
         <img src={LOGO_URL} alt="food logo">
@@ -38,6 +39,10 @@ let reactRouter=createBrowserRouter([
             { 
                 path:"/Contact",
                 element:<Contact/>
+            },
+            { 
+                path:"/restaurents/:resId",
+                element:<RestMenu/>
             }
         ]
         ,errorElement:<Error/>,

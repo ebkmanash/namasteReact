@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestCard from "./RestCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 let Body=()=>{
@@ -21,7 +22,7 @@ let Body=()=>{
         console.log("use effect")
     },[])
 
-   
+    console.log("list rest data",listRestData)
     return listRestData.length===0?(
         <Shimmer/>
     ):(
@@ -46,7 +47,10 @@ let Body=()=>{
             <div className='card-container'>
                 {filterSearch.map(cardInfo=>{
                    return(
-                        <RestCard key={cardInfo.info.id} rest={cardInfo}/>
+                    <Link key={cardInfo.info.id} to={"/restaurents/"+cardInfo.info.id}>
+                        <RestCard  rest={cardInfo}/>
+                    </Link>
+                        
                     )
                 })}
              </div>
