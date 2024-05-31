@@ -21,7 +21,9 @@ let RestMenu=()=>{
     console.log("rest menu body")
     let {name,cuisines,avgRating,costForTwoMessage}=restMenuInfo?.cards[2]?.card?.card?.info;
     console.log(restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card)
-    let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    // Swiggy  return array of cards, it can be any order in the array. So insted of using array index (cards[4]), access the menu direct using fixed property value of @type
+    // let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4].card?.card;
+    let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.find((c)=> c.card.card["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")?.card?.card;
     console.log("menu item",itemCards)
     return(
     <div>
