@@ -242,3 +242,17 @@ UserClass.js:11 First child child did mount
 UserClass.js:11 Second child child did mount
 UserClass.js:11 Third child child did mount
 About.js:9 parent did mount
+
+
+
+
+parent constructor
+About.js:18 parent render
+UserClass.js:10 child constructor
+UserClass.js:28 child render
+UserClass.js:13 child did mount
+About.js:9 parent did mount
+UserClass.js:28 child render
+UserClass.js:19 child did update
+About.js:15 parent will unmount
+UserClass.js:22 child will unmount

@@ -8,15 +8,19 @@ class About extends React.Component{
     componentDidMount(){
         console.log("parent did mount")
     }
+    componentDidUpdate(){
+        console.log("parent did update")
+    }
+    componentWillUnmount(){
+        console.log("parent will unmount")
+    }
     render(){
         console.log("parent render")
         return(<div>
             <h1>About us page</h1>
             
-            <UserClass name={"First child"} address={"hyderabad class"}/>
-            <UserClass name={"Second child"} address={"hyderabad class"}/>
-            <UserClass name={"Third child"} address={"hyderabad class"}/>
-        </div>)
+            <UserClass />
+            </div>)
     }
 }
 
