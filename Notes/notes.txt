@@ -225,3 +225,6 @@ child did mount
 parent did mount
 
 componentDidMount is used to call API data
+
+life cycle diagram
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
