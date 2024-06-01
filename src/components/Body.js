@@ -21,8 +21,6 @@ let Body=()=>{
         fetchData();
         console.log("use effect")
     },[])
-
-    console.log("list rest data",listRestData)
     return listRestData.length===0?(
         <Shimmer/>
     ):(
