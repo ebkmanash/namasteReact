@@ -228,3 +228,17 @@ componentDidMount is used to call API data
 
 life cycle diagram
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+Parent constructor
+parent render
+UserClass.js:8 First child child constructor
+UserClass.js:18 First child child render
+UserClass.js:8 Second child child constructor
+UserClass.js:18 Second child child render
+UserClass.js:8 Third child child constructor
+UserClass.js:18 Third child child render
+UserClass.js:11 First child child did mount
+UserClass.js:11 Second child child did mount
+UserClass.js:11 Third child child did mount
+About.js:9 parent did mount
