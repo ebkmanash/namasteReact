@@ -215,3 +215,13 @@ place the useState variable on top of functinal component
 
 Routing in reactS version 6.4
 
+class based
+
+parent constructor
+parent render
+child constructor
+child render
+child did mount
+parent did mount
+
+componentDidMount is used to call API data
