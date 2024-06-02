@@ -13,10 +13,13 @@ let Body=()=>{
         let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.693711&lng=81.0497646&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     
         let json=await data.json();
-        setListRestData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterSearch(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        
+
+        const filteredCrd = json?.data?.cards.find((c)=> c?.card?.card['@type']==='type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget');
+        const restaurants = filteredCrd?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        setListRestData(restaurants)
+        setFilterSearch(restaurants)
     }
+
     useEffect(()=>{
         fetchData();
         console.log("use effect")
@@ -37,7 +40,7 @@ let Body=()=>{
                     }}>Search BY Restrents</button>
                 </div>
             <button className='filter' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
-                setListRestData(filteredListRest)
+                setFilterSearch(filteredListRest)
             }}>
                 Top Rated Restrents
             </button>
