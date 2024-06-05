@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestCard from "./RestCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 let Body=()=>{
@@ -29,6 +30,14 @@ let Body=()=>{
         fetchData();
         console.log("use effect")
     },[])
+
+    if(useOnlineStatus()===false){
+        return(
+            <div>
+                <h1>your internet connection is offline, please make it online</h1>
+            </div>
+        )
+    }
     console.log('list rest data length',listRestData.length)
     return listRestData.length===0?(
         <Shimmer/>
