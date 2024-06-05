@@ -10,9 +10,17 @@ let Body=()=>{
     const[restSearch,setRestSearch]=useState("")
    
     let fetchData= async()=>{
-        let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.693711&lng=81.0497646&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    
+        let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.430618&lng=78.3257181&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        console.log("in fetch of body")
         let json=await data.json();
+        console.log("json",json)
+        // const filteredcard=json?.data?.cards.filter((c)=>c?.card?.card['@type']==="type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget");
+        // const filteredCrd = json?.data?.cards.filter((c)=> c?.card?.card['@type']==='type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget');
+        // console.log("filtered card",filteredCrd)
+        // const restaurants = filteredCrd?.card?.card?.gridElements?.infoWithStyle;
+        // console.log("restaurnt",restaurants)
+        // setListRestData(restaurants)
+        // setFilterSearch(restaurants)
         setListRestData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilterSearch(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         
@@ -21,6 +29,7 @@ let Body=()=>{
         fetchData();
         console.log("use effect")
     },[])
+    console.log('list rest data length',listRestData.length)
     return listRestData.length===0?(
         <Shimmer/>
     ):(
@@ -37,7 +46,7 @@ let Body=()=>{
                     }}>Search BY Restrents</button>
                 </div>
             <button className='filter' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
-                setListRestData(filteredListRest)
+                setFilterSearch(filteredListRest)
             }}>
                 Top Rated Restrents
             </button>
@@ -46,6 +55,7 @@ let Body=()=>{
                 {filterSearch.map(cardInfo=>{
                    return(
                     <Link key={cardInfo.info.id} to={"/restaurents/"+cardInfo.info.id}>
+                        {console.log(cardInfo)}
                         <RestCard  rest={cardInfo}/>
                     </Link>
                         
