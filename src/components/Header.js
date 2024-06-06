@@ -22,7 +22,8 @@ let HeaderLinks=()=>
                     <Link to="/Contact">contact us</Link>
                 </li>
                 <li>
-                    cart
+                    <Link to="/Grocery">Grocery</Link>
+                    
                 </li>
                 
                 <button className="header-btn" onClick={()=>btnname==="Login"?setBtnname("Logout"):setBtnname("Login")}>{btnname}</button>
