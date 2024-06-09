@@ -27,14 +27,14 @@ let RestMenu=()=>{
     // let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.find((c)=> c.card.card["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")?.card?.card;
     console.log("menu item",itemCards)
     return(
-    <div>
-        <h1>Name of restarent:{name}</h1>
-        <h3>{cuisines.join(",")}</h3>
-        <h3>{avgRating}</h3>
-        <h3>{costForTwoMessage}</h3>
-        <h3>menu items</h3><ul>
+    <div className="p-2 m-2 border-s-violet-300">
+        <h1 className="p-2 m-2 font-bold">Name of restarent:{name}</h1>
+        <h3 className="p-2 m-2">{cuisines.join(",")}</h3>
+        <h3 className="p-2 m-2">Rating:{avgRating}*</h3>
+        <h3 className="p-2 m-2">Cost For Two:{costForTwoMessage}</h3>
+        <h3 className="p-2 m-2">menu items</h3><ul>
         {itemCards.map(item=>{return(
-            <li key={item.card.info.id}>{item.card.info.name}-Rs{item.card.info.price/100||item.card.info.defaultPrice/100}</li>
+            <li className="p-2 m-2" key={item.card.info.id}>{item.card.info.name}-Rs{item.card.info.price/100||item.card.info.defaultPrice/100}</li>
         )})}</ul>
                   
     </div>

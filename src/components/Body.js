@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestCard from "./RestCard";
+import RestCard,{PromotedRestCard} from "./RestCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -39,33 +39,37 @@ let Body=()=>{
         )
     }
     console.log('list rest data length',listRestData.length)
-    return listRestData.length===0?(
+    let RestCardPromoted=PromotedRestCard(RestCard);
+     return listRestData.length===0?(
         <Shimmer/>
     ):(
         <div>
-            <div className="search">
+            <div className="flex p-4 m-4">
                 <div>
-                    <input name="text" value={restSearch} onChange={(e)=>{setRestSearch(e.target.value)
+                    <input className="border-solid border-current bg-violet-50 hover:bg-slate-400" name="text" value={restSearch} onChange={(e)=>{setRestSearch(e.target.value)
             
                     }}></input>
-                    <button className="search-button" onClick={()=>{ 
+                    <button className="p-3 mx-2 bg-green-200 rounded-lg" onClick={()=>{ 
                        const searchList =listRestData.filter((rest)=>{return(rest.info.name.toLowerCase().includes(restSearch.toLowerCase()))})
                        
                        setFilterSearch(searchList)
                     }}>Search BY Restrents</button>
                 </div>
-            <button className='filter' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
+            <button className='px-2 mx-2 bg-blue-200 rounded-lg' onClick={()=>{filteredListRest=listRestData.filter (res=>res.info.avgRating>4)
                 setFilterSearch(filteredListRest)
             }}>
                 Top Rated Restrents
             </button>
             </div>
-            <div className='card-container'>
+            <div className='flex flex-wrap'>
                 {filterSearch.map(cardInfo=>{
                    return(
                     <Link key={cardInfo.info.id} to={"/restaurents/"+cardInfo.info.id}>
-                        {console.log(cardInfo)}
-                        <RestCard  rest={cardInfo}/>
+                       
+                        {console.log("card info",cardInfo.info.isOpen)}
+                        {cardInfo.info.isOpen?(<RestCardPromoted rest={cardInfo}/>):<RestCard rest={cardInfo}/>}
+                        
+                    
                     </Link>
                         
                     )

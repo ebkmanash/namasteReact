@@ -12,14 +12,14 @@ import RestMenu from './components/RestMenu'
 const Grocery = lazy(() => import('./components/Grocery'));
 export let Logo=()=>{
     return(
-        <img src={LOGO_URL} alt="food logo">
+        <img className="w-56"src={LOGO_URL} alt="food logo">
 
         </img>
     )
 }
 let NamasteFood=()=>{
     return(
-        <div>
+        <div >
             <Header/>
             <Outlet/>
         </div>
