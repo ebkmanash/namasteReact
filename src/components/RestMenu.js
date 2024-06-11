@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 // import { MENU_API } from "../utils/constants";
 import useRestMenu from "../utils/UseRestMenu";
+import RestItemCategory from "./RestItemCategory";
 
 let RestMenu=()=>{
     // let [restMenuInfo,setRestMenuInfo]=useState(null);
@@ -25,17 +26,23 @@ let RestMenu=()=>{
     // console.log(restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card)
     let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     // let {itemCards}=restMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.find((c)=> c.card.card["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")?.card?.card;
-    console.log("menu item",itemCards)
+    console.log("menu item",restMenuInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards)
+    let category=restMenuInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c)=>c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    console.log("category",category)
     return(
     <div className="p-2 m-2 border-s-violet-300">
         <h1 className="p-2 m-2 font-bold">Name of restarent:{name}</h1>
         <h3 className="p-2 m-2">{cuisines.join(",")}</h3>
         <h3 className="p-2 m-2">Rating:{avgRating}*</h3>
         <h3 className="p-2 m-2">Cost For Two:{costForTwoMessage}</h3>
-        <h3 className="p-2 m-2">menu items</h3><ul>
+        {category.map(eachCategory=>{return(<RestItemCategory  data={eachCategory?.card?.card}/>)})}
+
+
+
+        {/* <ul>
         {itemCards.map(item=>{return(
             <li className="p-2 m-2" key={item.card.info.id}>{item.card.info.name}-Rs{item.card.info.price/100||item.card.info.defaultPrice/100}</li>
-        )})}</ul>
+        )})}</ul> */}
                   
     </div>
     )
