@@ -30,11 +30,14 @@ let RestMenu=()=>{
     let category=restMenuInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c)=>c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
     console.log("category",category)
     return(
-    <div className="p-2 m-2 border-s-violet-300">
-        <h1 className="p-2 m-2 font-bold">Name of restarent:{name}</h1>
-        <h3 className="p-2 m-2">{cuisines.join(",")}</h3>
-        <h3 className="p-2 m-2">Rating:{avgRating}*</h3>
-        <h3 className="p-2 m-2">Cost For Two:{costForTwoMessage}</h3>
+    <div className="w-6/12  shadow-lg p4 mx-auto my-4  ">
+        <div>
+        <h1 className="p-2 m-2 font-bold flex justify-center">Name of restarent:{name}</h1>
+        <h3 className="p-2 m-2 flex justify-center">{cuisines.join(",")}</h3>
+        <h3 className="p-2 m-2 flex justify-center">Rating:{avgRating}*</h3>
+        <h3 className="p-2 m-2 flex justify-center shadow-lg">Cost For Two:{costForTwoMessage}</h3>
+        </div>
+        
         {category.map(eachCategory=>{return(<RestItemCategory  data={eachCategory?.card?.card}/>)})}
 
 
