@@ -4,21 +4,13 @@ import { useParams } from "react-router-dom";
 // import { MENU_API } from "../utils/constants";
 import useRestMenu from "../utils/UseRestMenu";
 import RestItemCategory from "./RestItemCategory";
+import { useState } from "react";
 
 let RestMenu=()=>{
-    // let [restMenuInfo,setRestMenuInfo]=useState(null);
     let {resId}=useParams();
     let restMenuInfo=useRestMenu(resId);
     console.log("res id",resId)
-    // let fetchRest = async()=>
-    // {
-    //     let fetchData=await fetch(MENU_API+resId);
-    //     let restMenu=await fetchData.json();
-    //     console.log("restarent menu info",restMenu)
-    //     setRestMenuInfo(restMenu.data)
-    //     console.log("name of restarent is:",restMenuInfo?.cards[2]?.card?.card?.info?.name)
-    // }
-    // useEffect(()=>{fetchRest()},[])
+    const [showIndex,setShowIndex]=useState(0)
     if (restMenuInfo===null)
         return <Shimmer/>
     console.log("rest menu body")
@@ -38,14 +30,7 @@ let RestMenu=()=>{
         <h3 className="p-2 m-2 flex justify-center shadow-lg">Cost For Two:{costForTwoMessage}</h3>
         </div>
         
-        {category.map(eachCategory=>{return(<RestItemCategory  data={eachCategory?.card?.card}/>)})}
-
-
-
-        {/* <ul>
-        {itemCards.map(item=>{return(
-            <li className="p-2 m-2" key={item.card.info.id}>{item.card.info.name}-Rs{item.card.info.price/100||item.card.info.defaultPrice/100}</li>
-        )})}</ul> */}
+        {category.map((eachCategory,index)=>{return(<RestItemCategory  key={eachCategory?.card?.info?.name} data={eachCategory?.card?.card} show={index===showIndex?true:false} setShowIndex={()=>setShowIndex(index)}/>)})}
                   
     </div>
     )

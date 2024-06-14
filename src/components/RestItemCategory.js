@@ -1,10 +1,10 @@
 import { CDN_CLOUD } from "../utils/constants"
 import { useState } from "react";
-let RestItemCategory=({data})=>{
+let RestItemCategory=({data,show,setShowIndex})=>{
     console.log("at rest item category",data)
-    const [show,setShow]=useState(false);
+    
     let expand=()=>{
-        setShow(!show);
+        setShowIndex();
     }
     return(
         <div className="  bg-green-100 shadow-lg py-4 mx-auto my-4">
