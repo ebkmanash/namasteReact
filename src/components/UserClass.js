@@ -7,7 +7,7 @@ class UserClass extends React.Component{
             location:"ap"},
             
         }
-        console.log("child constructor");
+        // console.log("child constructor");
     }
     async componentDidMount(){
         console.log("child did mount")
@@ -16,10 +16,10 @@ class UserClass extends React.Component{
         this.setState({userInfo:json});
     }
     componentDidUpdate(){
-        console.log("child did update")
+        // console.log("child did update")
     }
     componentWillUnmount(){
-        console.log("child will unmount")
+        // console.log("child will unmount")
     }
     render(){
             

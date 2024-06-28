@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from 'react'
+import React,{lazy,Suspense, useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
 import Body from './components/Body'
@@ -8,6 +8,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Error from './components/Error'
 import RestMenu from './components/RestMenu'
+import UserContext from './utils/UserContext'
 // import Grocery from './components/Grocery'
 const Grocery = lazy(() => import('./components/Grocery'));
 export let Logo=()=>{
@@ -18,11 +19,21 @@ export let Logo=()=>{
     )
 }
 let NamasteFood=()=>{
+    let [userName,setUserName]=useState();
+    useEffect(()=>{
+        let data={loggedInUser:"Bala"};
+        setUserName(data.loggedInUser)
+    },[])
     return(
+        <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
         <div >
+        
             <Header/>
+            
             <Outlet/>
         </div>
+        </UserContext.Provider>
+        
     )
 }
 let reactRouter=createBrowserRouter([

@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Logo } from "../App";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 let HeaderLinks=()=>
     {
         const [btnname,setBtnname]=useState("Login");
-        console.log("header body")
         useEffect(()=>{console.log("use effect called in header")},[btnname])
+        let {loggedInUser}=useContext(UserContext)
         return(
             <div className='p-4 m-4 justify-center '>  
                 <ul className='flex '>
@@ -26,7 +27,11 @@ let HeaderLinks=()=>
                     
                 </li>
                 
-                <button className="header-btn" onClick={()=>btnname==="Login"?setBtnname("Logout"):setBtnname("Login")}>{btnname}</button>
+                <button className="header-btn" onClick={()=>btnname==="Login"?setBtnname("Logout:"):setBtnname("Login:")}>{btnname}</button>
+                <li className="p-4 m-4 font-bold">
+                    {loggedInUser}
+                    
+                </li>
             </ul>
             </div>
             

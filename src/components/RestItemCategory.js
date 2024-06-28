@@ -1,7 +1,5 @@
-import { CDN_CLOUD } from "../utils/constants";
-import { useState } from "react";
+import ItemList from "./ItemList";
 let RestItemCategory = ({ data, show, setShowIndex,showIndex }) => {
-  console.log("at rest item category", data,setShowIndex,showIndex);
 
   let expand = () => {
     setShowIndex();
@@ -14,23 +12,9 @@ let RestItemCategory = ({ data, show, setShowIndex,showIndex }) => {
         </span>
         <span>⬇</span>
       </div>
-      {show &&
-        data.itemCards.map((items) => {
-          return (
-            <div className="border-b-8 py-4 flex shadow-lg">
-              <div>
-                <span>{items.card.info.name} </span>
-                <span>Rs-{items.card.info.price / 100}</span>
-                <div className="py-2 my-2">{items.card.info.description}</div>
-              </div>
-              I
-              <img
-                className="w-24 h-24"
-                src={CDN_CLOUD + items.card.info.imageId}
-              ></img>
-            </div>
-          );
-        })}
+      {
+      show && <ItemList item={data.itemCards}/>
+        }
     </div>
   );
 };
